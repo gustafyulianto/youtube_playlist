@@ -3,39 +3,41 @@ import 'package:youtube/OwnDrawer.dart';
 
 void main() => runApp(Youtube());
 
-class Youtube extends StatefulWidget {
+class Youtube extends StatelessWidget {
   @override
-  _YoutubeState createState() => _YoutubeState();
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter',
+      home: MyHomePage(),
+      debugShowCheckedModeBanner: false,
+    );
+  }
 }
 
-class _YoutubeState extends State<Youtube> {
+class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        drawer: new OwnDrawer(),
-        appBar: new AppBar(
-          title: Text(
-            "Youtube List",
-            style: TextStyle(
-              fontWeight: FontWeight.w600,
-              backgroundColor: Colors.lightBlueAccent,
-            ),
+      drawer: OwnDrawer(),
+      appBar: AppBar(
+        centerTitle: true,
+        title: Text("Youtube Playlist API",
+            style: TextStyle(fontSize: 30, fontFamily: 'DancingScript')),
+      ),
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage("images/samara.jpg"),
+            fit: BoxFit.cover,
           ),
         ),
-        body: new Container(
-          decoration: BoxDecoration(),
-          child: new Center(
-            child: new Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                new SizedBox(
-                  width: 150,
-                  height: 150.0,
-                  child: new Image.asset(''),
-                )
-              ],
-            ),
+        child: Center(
+          child: Text(
+            "Video Youtube API",
+            style: TextStyle(fontSize: 30, fontFamily: 'DancingScript'),
           ),
-        ));
+        ),
+      ),
+    );
   }
 }
